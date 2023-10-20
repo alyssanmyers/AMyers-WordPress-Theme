@@ -14,25 +14,34 @@ get_header();
 
 ?>
 
-<main>
+<main style="width: 100%; padding: 5% 0 0 0;">
 	
-	<div style="margin: 0 0 5% 5%; position: relative;">
-		<h1 class="animate__animated animate__fadeInUp">Hello, my name is Alyssa Myers.</h1>
-		<h3 class="animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">I am a designer, developer &amp; animator in northeastern Ohio.</h3>
+	<div style="position: relative;">
+		<h1 class="animate__animated animate__fadeInUp intro-header" style="color: rgba(0, 0, 0, 0.5);">Alyssa is a <span style="color: var(--main-color);">versatile creative</span> who has a passion for <span style="color: var(--main-color);">compelling narratives.</span></h1>
+		<h3 class="animate__animated animate__fadeInUp intro-body" style="animation-delay: 0.5s;">
+			<span class="intro">Experienced in design, animation, and front-end development with a knack for infusing inventive ideas into visual compositions.</span>
+		</h3>
+		<div class="intro-buttons animate__animated animate__fadeInUp" style="margin: 0 5%; animation-delay: 0.5s;">
+			<a href="#portfolio" class="cta-button">View my Work</a>
+			<a href="#contact" class="cta-button" style="margin-right: 0;">Get in Touch</a>
+		</div>
 		
 		<div class="filter">
-			<img src="<?php bloginfo('template_url'); ?>/images/filter.svg"/>
-	
-	
+			<img class="filter-img" src="<?php bloginfo('template_url'); ?>/images/filter.svg"/>
+			
+			
 	<?php
 	if ( have_posts() ) : while ( have_posts() ) : the_post();
+			
 
 $args = array (
 			'category_name' => '',
-			'post_type' => 'port_pieces'
+			'post_type' => 'port_pieces',
+			'has_password'   => FALSE
 		);
 
 		$the_query = new WP_Query( $args );
+			
 ?>
 
 		<ul id="port-cats" class="body-text">
@@ -77,7 +86,7 @@ $args = array (
 		</div>
 
 		<?php if ( $the_query->have_posts() ) : ?>
-		<ul id="portfolio">
+		<ul id="portfolio" class="anchor">
 			
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			
@@ -107,6 +116,7 @@ $args = array (
 			<?php endwhile; ?>
 				
 			</ul>
+	
 		<?php endif;
 		endwhile; endif; 
 ?>

@@ -18,25 +18,25 @@ $(document).ready(function()
 	// display the menu when the menu icon is clicked
 	$( ".burger-menu" ).click(function() 
 	{
-		if ($( "nav ul" ).css('display') == 'none')
+		if ($( "nav ul.navigation" ).css('display') == 'none')
 		{
-			$( "nav ul" ).css('display','flex').fadeIn(500);
+			$( "nav ul.navigation" ).css('display','flex').fadeIn(500);
 		}
 		else
 		{
-			$( "nav ul" ).css('display','none').fadeOut(500);
+			$( "nav ul.navigation" ).css('display','none').fadeOut(500);
 		}
 		$( ".close-button" ).slideToggle("slow");
 		$( ".burger-menu ul" ).slideToggle("slow");
 	});
 	
 	$( ".filter" ).hover(function() 
-	{
-		$( "#port-cats" ).fadeIn(500).css('display','table');
-	},
-	function() 
-	{
-		$( "#port-cats" ).fadeOut(500);
+		{
+			$( "#port-cats" ).fadeIn(500).css('display','table');
+		},
+		function() 
+		{
+			$( "#port-cats" ).fadeOut(500);
 	});
 	
 });
@@ -69,7 +69,8 @@ function checkPageSize()
 	// reset to all default values for scroll actions.
 	if ( !matchMedia('(max-width: 799px)').matches )
 	{
-		$( "nav ul" ).css("display", "flex");
+		$( "nav ul.navigation" ).css("display", "flex");
+		$( ".close-button" ).show();
 		$( ".burger-menu ul" ).show();
 		
 		prev_width = $(window).innerWidth();
@@ -78,7 +79,7 @@ function checkPageSize()
 	// hide the nav
 	else
 	{
-		$( "nav ul" ).css("display", "none");
+		$( "nav ul.navigation" ).css("display", "none");
 		$( ".close-button" ).hide();
 		$( ".burger-menu ul" ).show();
 		

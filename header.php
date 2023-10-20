@@ -54,8 +54,20 @@
 			<a href="<?php echo get_site_url(); ?>">
 			<img id ="logo" src="<?php bloginfo('template_url'); ?>/images/amyers_logo.svg" alt="Alyssa Myers Logo" />
 			</a>
-					
-			<ul>
+			
+			<!--<div style="display: flex; text-align: center; height: 100%; padding: 0;">
+				
+			</div>-->
+			
+			<ul style="float: left;" class="name">
+				<li>
+					<h2 class="header-name">Alyssa Myers</h2>
+					&nbsp;&nbsp;&nbsp;
+					<h3 class="title">Creative Developer</h3>
+				</li>
+			</ul>
+			
+			<ul class="navigation">
 				<?php 					 
 						$args = array(
 									'theme_location'  => 'nav-menu',
@@ -79,9 +91,9 @@
 						wp_nav_menu( $args );
 		
 					?>
-				<li>
+				<li class="social">
 					<a href="//linkedin.com/in/alyssanmyers" class="social" target="_blank">
-						<img class="social-icon" src="<?php bloginfo('template_url'); ?>/images/linkedin.svg" alt="Linkedin" />
+						<img class="social-icon first" src="<?php bloginfo('template_url'); ?>/images/linkedin.svg" alt="Linkedin" />
 					</a>
 					<a href="//github.com/alyssanmyers" class="social" target="_blank">
 						<img class="social-icon" src="<?php bloginfo('template_url'); ?>/images/github.svg" alt="github" />

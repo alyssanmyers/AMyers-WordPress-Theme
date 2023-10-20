@@ -74,22 +74,20 @@
 		/* register all js */
 		wp_register_script('jquery.min', get_stylesheet_directory_uri().'/js/jquery.min.js');
 		wp_register_script('script', get_stylesheet_directory_uri().'/js/script.js');
+		wp_register_script('carousel', get_stylesheet_directory_uri().'/js/owl.carousel.min.js');
 
 		/* call all stylesheets and scripts */
 		wp_enqueue_style( 'style' );
 		wp_enqueue_script( 'jquery.min' );
 		wp_enqueue_style( 'animate.min' );
 		wp_enqueue_script( 'script' );
+		wp_enqueue_script( 'carousel' );
 	}
 
 	/* web fonts */
 	function google_fonts() 
 	{
-		$query_args = array(
-			'family' => 'Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900',
-			'subset' => 'latin,latin-ext'
-		);
-		wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', false );
 	}
 
 	function disable_fancybox()

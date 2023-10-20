@@ -9,9 +9,13 @@
 
 /* CSS Document */
 
+.carrots, #name-error-1, #email-error-1, #message-error-1, #error-message-1 { display:none; }
+
 :root
 {
 	--main-color: #4EAFAA;
+	--secondary-color: #7f7f7f;
+	--gradient-color: #f5f3b6;
 	-webkit-transition: all 0.5s ease;
 	   -moz-transition: all 0.5s ease;
 	     -o-transition: all 0.5s ease;
@@ -19,7 +23,8 @@
 	        transition: all 0.5s ease;
 }
 
-.grecaptcha-badge{
+.grecaptcha-badge
+{
 	visibility: collapse !important;  
 	display: none !important;
 }
@@ -30,6 +35,12 @@ html
 	overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
 	font-family: 'Open Sans', sans-serif;
+	scroll-behavior: smooth;
+}
+
+.anchor::before
+{
+	content: ''; display: block; position: relative; width: 0; height: 75px; 
 }
 
 body
@@ -93,8 +104,8 @@ a.plain
 
 main
 {
-	width: calc(100vw - 20%);
-	padding: 5% 10%;
+	width: calc(100vw - 10%);
+	padding: 5%;
 }
 
 /****************/
@@ -104,13 +115,17 @@ main
 /* navigation area */
 nav
 {
-	width: calc(100% - 5%);
+	width: calc(100% - 10%);
 	height: 75px;
 	margin: 0;
-	padding: 0 2.5%;
+	padding: 0 5%;
 	background-color: var(--main-color);
 	position: fixed;
 	z-index: 11;
+	
+	background: linear-gradient(35deg, var(--main-color), var(--gradient-color));
+    background-size: 250% 100%;
+    animation: gradient 5s ease infinite;
 }
 
 /* logo in the nav */
@@ -118,13 +133,38 @@ nav #logo
 {
 	height: 50px;
 	float: left;
-	margin: 10px 50px 0px 0px;
+	margin: 10px 10px 0px 0px;
+}
+
+h2.header-name
+{
+	color: #ffffff;
+	letter-spacing: 3px;
+}
+
+h3.title
+{
+	color: #ffffff;
+	font-weight: 400;
+	letter-spacing: 2px;
+	font-size: 100%;
 }
 
 nav .social-icon
 {
 	width: 15px;
-	margin: 0 15px 0 0;
+	margin: 0 0 0 15px;
+}
+
+nav .social-icon.first
+{
+	width: 15px;
+	margin: 0;
+}
+
+nav ul li.social
+{
+	padding: 0 0 0 15px;
 }
 
 /* nav menu */
@@ -187,6 +227,54 @@ nav ul a:not(.social):before, a.button:before
 	-webkit-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
 }
+
+a.cta-button,
+input[type=submit],
+button
+{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    min-width: 150px;
+    padding: 0 15px;
+    background-color: #7f7f7f;
+    color: #ffffff !important;
+    margin: 2% 15px 0 0;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+input[type=submit],
+button
+{
+	width: 100%;
+	background-color: unset;
+	border: 1px solid #ffffff;
+}
+
+@media (min-width: 800px)
+{
+	a.cta-button
+	{
+		width: calc(50% - 41px);
+	}
+}
+
+@media (max-width: 799px)
+{
+	a.cta-button
+	{
+		margin-right: 0;
+		margin-top: 5%;
+	}
+}
+
+a.cta-button:hover, input[type=submit]:hover, button:hover
+{
+	transform: scale(1.01);
+}
+
 #port-cats a:before
 {
 	content: "";
@@ -211,22 +299,6 @@ nav ul a:hover:before, a.button:hover:before, #port-cats a:hover:before
 }
 
 
-/* type styles */
-
-/* menu item type */
-nav, a.button
-{
-	font-size: 0.8em;
-	letter-spacing: 0.15em;
-	text-transform: uppercase;
-	font-weight: 500;
-}
-
-a.button
-{
-	font-weight: bold;
-}
-
 /***************/
 /* Burger Menu */
 /***************
@@ -238,10 +310,11 @@ a.button
 	z-index: 15;
 	float: right;
 	width: 40px;
-	margin-top: 20px;
+	margin-top: 15px;
 	text-align: center;
 	position: fixed;
-	right: calc(50% - 20px);
+	//right: calc(50% - 20px);
+	right: 5%;
 }
 
 .burger-menu .close-button
@@ -306,40 +379,49 @@ main
 
 /* type styles */
 
+/* menu item type */
+nav, a.button, a.cta-button, input[type=submit], button
+{
+	font-size: 0.8em;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
 /* intro on front page headline */
-main h1
+main h1, footer h2
 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 3em;
+	font-size: 2.5em;
 	line-height: 1em;
 	font-weight: 700;
 	color: var(--main-color);
 }
 
 /* portfolio single headline */
-main h2
+main h2, footer h2
 {
 	font-size: 1.5em;
-	line-height: 2em;
+	line-height: 1.5em;
 	font-weight: 600;
 	color: var(--main-color);
 }
 
 /* intro on front page byline */
-main h3
+main h3, footer h3
 {
 	font-family: 'Raleway', sans-serif;
-	color: #aaaaaa;
+	color: #000000;
 	font-size: 1.25em;
-	line-height: 1em;
-	font-weight: 400;
+	line-height: 1.5em;
+	font-weight: normal;
 }
 
 /* portfolio byline on front page per portfolio piece */
-main h4
+main h4, footer h4
 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 0.75em;
+	font-size: 0.8em;
 	font-weight: 400;
 	line-height: 1.5em;
 	padding: 0;
@@ -350,21 +432,34 @@ main h4
 main h5
 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 0.75em;
+	font-size: 0.8em;
 	font-weight: 700;
-	line-height: 1em;
+	line-height: 1.5em;
 	padding: 0;
 	margin: 0;
 	color: #000000;
 	text-transform: uppercase;
 }
 
-main h5 a
+/* footer */
+footer h5
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 0.8em;
+	letter-spacing: 0.01em;
+	font-weight: 500;
+	line-height: 1.5em;
+	padding: 0;
+	margin: 0;
+	color: #ffffff;
+}
+
+main h5 a, footer h5 a
 {
 	color: var(--main-color);
 }
 
-main p
+main p, footer p
 {
 	font-family: 'Raleway', sans-serif;
 	text-align: left;
@@ -373,6 +468,126 @@ main p
 	line-height: 1.75em;
 	color: #000000;
 	margin: 5px 0 15px 0;
+}
+
+footer p
+{
+	line-height: 1.5em;
+}
+
+main ul#port-cats li
+{
+	font-family: 'Raleway', sans-serif;
+}
+
+@media (min-width: 900px)
+{
+	.title
+	{
+		display: block;
+	}
+}
+
+@media (max-width: 899px)
+{
+	.title
+	{
+		display: none;
+	}
+}
+
+@media (min-width: 800px)
+{
+	.intro-header { margin-left: 5%; margin-right: 5%; }
+	.intro-body { margin: 0 15% 0 5%;}
+	
+	.intro
+	{
+		display: block;
+	}
+	
+	h2.header-name
+	{
+		color: #ffffff;
+		letter-spacing: 3px;
+		font-size: 125%;
+	}
+}
+
+@media (max-width: 799px)
+{
+	/* change the font size of page */
+	html, body
+	{
+		font-size: 100%;
+	}
+	
+	.intro
+	{
+		margin-bottom: 10%;
+		display: block;
+	}
+	
+	.intro-header { text-align: center; margin-top: 10%; margin-left: 5%; margin-right: 5%; }
+	.intro-body { text-align: center; margin: 0 5% 5% 5%; }
+	
+	/* intro header */
+	main h1
+	{
+		font-size: 1.5em;
+		line-height: 1.25em;
+	}
+	
+	/* byline */
+	main h3
+	{
+		font-size: 1em;
+		line-height: 1.5em;
+	}
+	
+	a.cta-button, input[type=submit], button
+	{
+		font-size: 0.8em;
+	}
+	
+	h2.header-name
+	{
+		font-size: 1em;
+		font-weight: 500;
+	}
+	
+	main ul#port-cats li
+	{
+		font-size: 1em !important;
+	}
+	
+	/* body paragraph
+	main h2
+	{
+		font-size: 3em;
+	}
+	
+	main h2
+	{
+		font-size: 2em;
+	}
+	
+	main h5
+	{
+		font-size: 1.25em;
+	}
+
+	main h4
+	{
+		font-size: 1em;
+	}
+	
+	main p
+	{
+		font-size: 1.5em;
+	}
+	*/
+	
 }
 
 /****************/
@@ -394,12 +609,19 @@ main ul.three-across
 }
 
 main ul.side-by-side-left,
-main ul.side-by-side-right,
 main ul.side-by-side-right-flipped
 {
 	display: flex;
 	justify-content: center;
     align-items: center;
+	margin-bottom: 100px;
+}
+
+main ul.side-by-side-right
+{
+	display: flex;
+	justify-content: center;
+    align-items: flex-start;
 	margin-bottom: 100px;
 }
 
@@ -473,6 +695,27 @@ main ul.side-by-side-right-flipped li:first-child p.body-text
 	margin: 0;
 }
 
+/* bottom section, force button to bottom */
+@media (min-width: 800px)
+{
+	main ul.three-across
+	{
+		display: flex;
+	}
+	
+	main ul.three-across li
+	{
+		display: inline-grid;
+	}
+	
+	main ul.three-across li a.cta-button
+	{
+		display: flex;
+		flex-direction: column;
+		align-self: flex-end;
+	}
+}
+
 @media all and (max-width: 799px)
 {
 	main ul.side-by-side-left,
@@ -530,6 +773,33 @@ main ul.side-by-side-right-flipped li:first-child p.body-text
 /*    CONTACT     */
 /******************/
 
+#contact-container
+{	padding: 5% 25%;
+	text-align: center;
+}
+
+@media (max-width: 799px)
+{
+	#contact-container
+	{	padding: 5%;
+		text-align: center;
+	}
+}
+
+#contact-container h2
+{
+	color: #ffffff;
+	line-height: 1.25em;
+}
+
+#contact-container p
+{
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 25px;
+	font-weight: 500;
+}
+
 /* Add a background color and some padding around the form */
 #contact-form
 {
@@ -537,8 +807,7 @@ main ul.side-by-side-right-flipped li:first-child p.body-text
     background-color: #f2f2f2;
     padding: 25px;
 	margin: 20px 0;
-	//display: inline-block;
-	float: left;
+	float: left
 	margin-right: 50px;
 	width: calc(100% - 700px);
 	
@@ -553,8 +822,13 @@ main ul.side-by-side-right-flipped li:first-child p.body-text
 
 #contact-form img
 {
-	//width: calc(100% - 25px);
 	width: 100%;
+}
+
+success-message-1 img
+{
+	width: 100%;
+    margin-top: 25px;
 }
 
 /* Style inputs with type="text", select elements and textareas */
@@ -563,19 +837,25 @@ input[type=text], input[type=email], select, textarea
     width: 100%; /* Full width */
     padding: 10px; /* Some padding */  
     border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
+    //border-radius: 25px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 5px; /* Add a top margin */
     margin-bottom: 5px; /* Bottom margin */
     resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
 		
 	/* type */
-	font-family: Baskerville, "Times New Roman", "serif";
-	font-size: 1.25em;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1em;
     font-weight: normal;
+	color: #bababa;
 }
 
-/* Style the submit button with a specific background color etc */
+textarea
+{
+	height: 100px;
+}
+
+/* Style the submit button with a specific background color etc 
 input[type=submit] 
 {
 	border: 0.15em solid var(--main-color);
@@ -593,7 +873,6 @@ input[type=submit]
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
 	
-	/* type */
 	font-family: Futura, serif;
 	font-size: 1em;
     letter-spacing: 0.15em;
@@ -601,14 +880,14 @@ input[type=submit]
     text-transform: lowercase;
     text-align: center;
     padding: 0 10px;
-}
+}*/
 
-/* When moving the mouse over the submit button, lighten the color */
+/* When moving the mouse over the submit button, lighten the color 
 input[type=submit]:hover 
 {
 	background-color: var(--main-color);
 	color: #ffffff;
-}
+}*/
 
 div.wpcf7-mail-sent-ok 
 {
@@ -621,13 +900,30 @@ div.wpcf7-mail-sent-ok
 /*    PORTFOLIO   */
 /******************/
 
+.demo-reel
+{
+	width: 75%; margin: 75px auto 5% auto; padding: 42.25% 0 0 0; position: relative;
+}
+
+@media only screen and (max-device-width: 899px)
+{
+	.demo-reel
+	{
+		margin-top: calc(75px + 5%);
+		margin-bottom: calc(-75px + 5%);
+	}
+}
+
 .filter
 {
 	width: 40px;
-	position: absolute;
+	position: fixed;
 	right: 0;
-	bottom: 0;
+	bottom: 86%;
 	cursor: pointer;
+	background-color: #ffffff;
+	z-index: 10;
+	padding: 10px 10px 6px 10px;
 }
 
 main ul#port-cats
@@ -707,9 +1003,11 @@ main ul#portfolio, main ul#port-images
 main ul#portfolio li
 {
 	float: left;
-    width: calc(100% / 2 - 0.5%);
+    //width: calc(100% / 2 - 0.5%);
+	width: 50%;
 	aspect-ratio: 16 / 9;
-	margin: 0 1% 1% 0;
+	//margin: 0 1% 1% 0;
+	margin: 0;
 	box-shadow: inset 0 0 5px #8E8E8E;
 	overflow: hidden;
  	position: relative;
@@ -727,6 +1025,11 @@ main ul#port-images li
 }
 
 main ul#portfolio li:nth-child(2n), main ul#port-images li:nth-child(2n)
+{
+	//margin: 0 0 1% 0;
+}
+
+main ul#port-images li:nth-child(2n)
 {
 	margin: 0 0 1% 0;
 }
@@ -972,6 +1275,12 @@ ul#port-images li img
 	width: 47.5%;
 }
 
+ul.mlb-list
+{
+	padding: 0;
+	overflow: hidden;
+}
+
 /****************/
 /*    FOOTER    */
 /****************/
@@ -981,10 +1290,32 @@ footer
 {
 	/* 50px for the padding */
 	width: 100%;
-	height: 50px;
+	//height: 50px;
 	position: relative;
 	margin: 0 auto;
 	color: #ffffff;
+}
+
+footer
+{/*purple 7356cf*/
+	background-color: var(--main-color);
+	background: linear-gradient(35deg, var(--gradient-color), var(--main-color));
+    background-size: 250% 100%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient
+{
+	0% {
+    background-position: 0% 50%;
+}
+
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /* information in the footer, ie name */
@@ -993,44 +1324,53 @@ footer
 	width: 100%;
 	text-align: center;
 	display: inline-block;
-	padding: 25px 0;
-	background-color: var(--main-color);
+	padding: 15px 0;
 }
 
 /* social buttons in the footer */
-footer ul
+footer ul.social
 {
-	position: absolute;
-	right: 0;
-	top: 37.5px;
 	height: 50px;
 	margin: 0 auto;
 	list-style: none;
+	display: table;
+	padding: 0;
 }
 
 /* list item holding the image */
-footer ul li
+footer ul.social li
 {
-	height: 35px;
-	width: 35px;
 	float: left;
-	margin-left: 10px;
+	width: 15px;
+	height: 15px;
+	margin: 0 10px 0 10px;
 }
 
 /* actual social media icon */
 footer ul li img
 {
-	width: 35px;
-	height: 35px;
+	width: 15px;
+	margin: 0;
+}
+
+footer .social-icon.first
+{
+	width: 15px;
+	margin: 0;
+}
+
+footer ul.social li:last-child img
+
+{
+	margin-bottom: 2px;
+}
+
+footer ul.social li:first-child img
+{
+	margin-bottom: 1px;
 }
 
 /* type styles */
-
-/* general footer type size */
-footer
-{
-	font-size: 0.7em;
-}
 
 /* footer info line height must be 1/3 of the 50 (three lines of type) */
 #footer-info
@@ -1063,7 +1403,7 @@ footer a.plain
 /****************/
 
 /* button animations */
-.button, nav li, #instafeed li, #instafeed .overlay, #port-cats li
+.button, nav li, #instafeed li, #instafeed .overlay, #port-cats li, a.cta-button, input[type=submit], button
 {
 	-webkit-transition: all 0.5s ease;
 	   -moz-transition: all 0.5s ease;
@@ -1125,13 +1465,57 @@ footer a.plain
 /* MEDIA QUERIES */
 /*****************/
 
+@media only screen and (max-device-width: 899px)
+{
+	.filter
+	{
+		width: 100%;
+		position: relative;
+		right: 0;
+		padding: 0px;
+	}
+	
+	.filter img
+	{
+		width: 45px;
+		display: none;
+	}
+
+	main ul#port-cats
+	{
+		display: table !important;
+		width: 100%;
+		position: relative;
+		right: 0;
+		margin: 10% auto 0 auto;
+		padding: 5%;
+		background-color: #404040;
+		text-align: center;
+		margin-bottom: -75px;
+	}
+
+	main ul#port-cats li
+	{
+		padding: 10px;
+		text-align: left;
+		display: inline-block;
+	}
+	
+	main ul#port-cats a
+	{
+		color: #ffffff !important;
+	}
+	
+	.intro-buttons { margin-bottom: 10% !important; }
+}
+
+@media only screen and (max-device-width: 699px)
+{
+	.intro-buttons { margin-bottom: 15% !important; }
+}
+
 @media all and (max-width: 1399px)
 {
-	/* change the font size of page */
-	html, body
-	{
-		font-size: 90%;
-	}
 	
 	/* create more space for navigation before it begins to stack */
 	nav ul li
@@ -1180,62 +1564,30 @@ footer a.plain
 		left: 0;
 	}
 	
-	/* smaller input boxes for contact form */
+	/* smaller input boxes for contact form
 	input[type=text], input[type=email], select, textarea 
 	{
 		width: 90%;
-	}
+	}*/
 
 }
 
 @media all and (max-width: 799px)
-{
-	/* intro header */
-	main h1
-	{
-	}
-
-	/* body paragraph */
-	main h2
-	{
-		font-size: 3em;
-	}
-	
-	main h5
-	{
-		font-size: 1.25em;
-	}
-
-	main p
-	{
-		font-size: 1.5em;
-	}
-	
-	main ul#port-cats
-	{
-		right: 5%;
-	}
-	
+{	
 	main
 	{
 		width: calc(100vw - 10%);
 		padding: 50px 5%;
 	}
 	
-	.burger-menu
+	a.cta-button, input[type=submit], button
 	{
 		display: block;
 	}
 	
-	.filter
+	.burger-menu
 	{
-		display: none;
-	}
-
-	/* change the font size of page */
-	html, body
-	{
-		font-size: 80%;
+		display: block;
 	}
 	
 	/* stack the menu items */
@@ -1245,25 +1597,20 @@ footer a.plain
 		margin: 0 auto;
 		padding: 0;
 		width: 100%;
-		
-		font-size: 50px;
-		letter-spacing: 0;
-		text-transform: capitalize;
-		font-weight: 600;
 	}
 
 	/* center the logo */
 	nav #logo
 	{
-		height: 50px;
-		float: none;
+		height: 40px;
+		float: left;
 		display: block;
-		margin: 0;
-		padding: 10px 0px 15px 5%;
+		margin: 0 auto;
+		padding: 15px 0px 15px 5%;
 	}
 
 	/* add space between logo and menu */
-	nav ul
+	nav ul:not(.name)
 	{
 		width: 100%;
 		height: 100vh;
@@ -1272,26 +1619,32 @@ footer a.plain
 		display: flex;
     	align-items: center;
 		position: absolute;
+		
+		font-size: 50px;
+		letter-spacing: 0;
+		text-transform: capitalize;
+		font-weight: 600;
 	}
 	
-	nav ul
+	nav ul:not(.name)
 	{
 		display: none;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		margin-top: 75px;
 	}
 
 	/* add space between each menu item */
-	nav ul li
+	nav ul:not(.name) li
 	{
 		display: block;
 		padding: 25px;
 		width: 100%;
 	}
 	
-	nav ul a
+	nav ul:not(.name) a
 	{
 		color: #cccccc;
 	-webkit-transition: all 0.25s ease;
@@ -1323,6 +1676,26 @@ footer a.plain
 		transform: none;
 	}
 	
+	nav ul li.social
+	{
+		display: flex;
+		padding: 0;
+		margin: 5% auto 50% auto;
+		width: auto;
+	}
+	
+	nav .social-icon
+	{
+		height: 25px;
+		width: 25px !important;
+		margin: 0 0 0 10px;
+		background-color: var(--main-color);
+		padding: 10px;
+		background: linear-gradient(35deg, var(--gradient-color), var(--main-color));
+		background-size: 250% 100%;
+		animation: gradient 5s ease infinite;
+	}
+	
 	/* buttons stack */	
 	main .button
 	{
@@ -1344,8 +1717,13 @@ footer a.plain
 	}
 	
 	main ul#portfolio li,
-	main ul#port-images li,
 	main ul.three-across li
+	{
+		width: 100%;
+		margin: 0;
+	}
+	
+	main ul#port-images li
 	{
 		width: 100%;
 		margin: 0 0 1% 0;

@@ -19,25 +19,33 @@
 		
 	<?php echo wp_footer(); ?>
 		
+	<div id="contact">
+	<div id="contact-container">
+	<h2>Tell Me About Your Next Project</h2>
+	<p>Please don't hesitate to get in touch&mdash;I'd love to explore the creative possibilities we can achieve together!</p>
+	<?php echo do_shortcode('[simpleform]'); ?>
+		<!-- wp:simpleform/form-selector {"formId":"1","optionNew":"d-none","formOptions":"visible"} /-->
+	</div></div>
+		
 		<div id="footer-info">
-			&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'title'); ?>. All Rights Reserved.
+			<h5>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'title'); ?>. All Rights Reserved.
 			<br>
 			Site Designed &amp; Developed by Alyssa N. Myers.
-			<br>
-			<a href="mailto:alyssa@alyssanmyers.com" class="plain">Contact</a>
-			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="<?php get_site_url(); ?>/AlyssaMyers-Resume.pdf" class="plain" target="_blank">R&eacute;sum&eacute;</a>
+			</h5>
 		</div>
-		<!--
-		<ul>
-			<li><a href="//facebook.com/alyssa.myers.90" target="_blank"><img src="<//?php bloginfo('template_url'); ?>/images/facebook.png" alt="Facebook" /></a></li>
-			<li><a href="//twitter.com/alyssanmyers" target="_blank"><img src="<//?php bloginfo('template_url'); ?>/images/twitter.png" alt="Twitter" /></a></li>
-			<li><a href="//www.instagram.com/lyssicole/" target="_blank"><img src="<//?php bloginfo('template_url'); ?>/images/instagram.png" alt="Instagram" /></a></li>
-			<li><a href="//www.linkedin.com/in/alyssanmyers" target="_blank"><img src="<//?php bloginfo('template_url'); ?>/images/linkedin.png" alt="LinkedIn" /></a></li>
-			<li><a href="//github.com/alyssanmyers" target="_blank"><img src="<//?php bloginfo('template_url'); ?>/images/github.png" alt="Github" /></a></li>
-			<li><a href="mailto:alyssa@alyssanmyers.com"><img src="<//?php bloginfo('template_url'); ?>/images/email.png" alt="Email me!" /></a></li>
-		</ul>
-		-->
+		
+		<ul class="social">
+            <li><a href="//linkedin.com/in/alyssanmyers" class="social" target="_blank">
+                <img class="social-icon first" src="<?php bloginfo('template_url'); ?>/images/linkedin.svg" alt="Linkedin" />
+            </a></li>
+            <li><a href="//github.com/alyssanmyers" class="social" target="_blank">
+                <img class="social-icon" src="<?php bloginfo('template_url'); ?>/images/github.svg" alt="github" />
+            </a></li>
+            <li><a href="mailto:alyssa@alyssanmyers.com" class="social">
+                <img class="social-icon" src="<?php bloginfo('template_url'); ?>/images/email.svg" alt="github" />
+            </a></li>
+        </ul>
+		
 	</footer>
 
 </body>
